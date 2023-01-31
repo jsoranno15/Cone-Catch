@@ -6,6 +6,14 @@ using UnityEngine.SceneManagement;
 public class StartGame : MonoBehaviour
 {
 
+    private void Update()
+    {
+        if (Input.GetButtonDown("Switch"))
+        {
+            GameStart();
+        }
+    }
+
     public void GameStart()
     {
         SceneManager.LoadScene("Game");
