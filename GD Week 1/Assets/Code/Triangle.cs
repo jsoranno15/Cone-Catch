@@ -36,18 +36,15 @@ public class Triangle : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log("Hit");
         if(col.gameObject.tag == "circle")
         {
             score++;
             scoreOut.text = score.ToString();
-            Debug.Log("circle");
         }
         if (col.gameObject.tag == "square")
         {
             life--;
             lifeOut.text = life.ToString();
-            Debug.Log("square");
             if (life == 0)
             {
                 SceneManager.LoadScene("GameOver");
