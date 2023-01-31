@@ -9,12 +9,16 @@ public class Triangle : MonoBehaviour
 {
     Rigidbody2D triangleRB;
     public float xposition;
-    int score = 0;
-    int life = 3;
+    int score;
+    int life;
+    public Text scoreOut;
+    public Text lifeOut;
     // Start is called before the first frame update
     void Start()
     {
         triangleRB = GetComponent<Rigidbody2D>();
+        score = 0;
+        life = 3;
         
     }
 
@@ -36,13 +40,15 @@ public class Triangle : MonoBehaviour
         if(col.gameObject.tag == "circle")
         {
             score++;
+            scoreOut.text = score.ToString();
             Debug.Log("circle");
         }
         if (col.gameObject.tag == "square")
         {
             life--;
+            lifeOut.text = life.ToString();
             Debug.Log("square");
-            if(life == 0)
+            if (life == 0)
             {
                 SceneManager.LoadScene("GameOver");
             }
