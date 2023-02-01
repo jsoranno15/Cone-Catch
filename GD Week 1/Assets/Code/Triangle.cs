@@ -13,13 +13,15 @@ public class Triangle : MonoBehaviour
     int life;
     public Text scoreOut;
     public Text lifeOut;
+    ScreenShake shake;
+
     // Start is called before the first frame update
     void Start()
     {
         triangleRB = GetComponent<Rigidbody2D>();
         score = 0;
         life = 3;
-        
+        shake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ScreenShake>();
     }
 
     // Update is called once per frame
@@ -49,6 +51,7 @@ public class Triangle : MonoBehaviour
             {
                 SceneManager.LoadScene("GameOver");
             }
+            shake.ShakeTrigger();
         }
         Destroy(col.gameObject);
     }
