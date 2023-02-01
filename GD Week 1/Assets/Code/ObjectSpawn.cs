@@ -35,7 +35,7 @@ public class ObjectSpawn : MonoBehaviour
         {
             GameObject newCircle = Instantiate(cirlcePrefab, transform.position, Quaternion.identity);
             newCircle.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, force * 80));
-            float randomCDMod = Random.Range(-0.5f, 2.0f);
+            float randomCDMod = Random.Range(-0.5f, 1.5f);
             objectCooldown += randomCDMod;
             nextObject = Time.time + objectCooldown;
             Debug.Log(objectCooldown.ToString());
@@ -45,7 +45,7 @@ public class ObjectSpawn : MonoBehaviour
         {
             GameObject newSquare = Instantiate(squarePrefab, transform.position, Quaternion.identity);
             newSquare.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, force * 40));
-            float randomCDMod = Random.Range(-0.5f, 3.0f);
+            float randomCDMod = Random.Range(-0.5f, 2.0f);
             objectCooldown += randomCDMod;
             nextObject = Time.time + objectCooldown;
             Debug.Log(objectCooldown.ToString());

@@ -799,6 +799,10 @@ PrefabInstance:
       propertyPath: scoreIn
       value: 
       objectReference: {fileID: 984963800}
+    - target: {fileID: 8801209287126059774, guid: c19d73710bc14c1499bb9a56a8d0a7e8, type: 3}
+      propertyPath: objectCooldown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8801209287126059775, guid: c19d73710bc14c1499bb9a56a8d0a7e8, type: 3}
       propertyPath: m_Name
       value: Spawner (1)
@@ -2776,6 +2780,10 @@ PrefabInstance:
       propertyPath: scoreIn
       value: 
       objectReference: {fileID: 984963800}
+    - target: {fileID: 8801209287126059774, guid: c19d73710bc14c1499bb9a56a8d0a7e8, type: 3}
+      propertyPath: objectCooldown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8801209287126059775, guid: c19d73710bc14c1499bb9a56a8d0a7e8, type: 3}
       propertyPath: m_Name
       value: Spawner

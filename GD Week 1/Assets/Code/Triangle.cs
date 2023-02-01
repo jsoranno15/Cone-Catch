@@ -43,6 +43,10 @@ public class Triangle : MonoBehaviour
         }
         if (col.gameObject.tag == "square")
         {
+            if(PublicVars.highScore < score)
+            {
+                PublicVars.highScore = score;
+            }
             life--;
             lifeOut.text = life.ToString();
             if (life == 0)
