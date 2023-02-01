@@ -11,6 +11,8 @@ public class Triangle : MonoBehaviour
     public float xposition;
     int score;
     int life;
+    bool invuln = false;
+    float invulnTime = 0.0f;
     ScreenShake shake;
     public TextMeshProUGUI scoreOut;
     public TextMeshProUGUI lifeOut;
@@ -34,6 +36,15 @@ public class Triangle : MonoBehaviour
             transform.Translate(xposition , 0,0);
             xposition = xposition * -1;
         }
+
+        if (invulnTime > 0)
+        {
+            invulnTime -= Time.deltaTime;
+            if (invulnTime <= 0)
+            {
+                invuln = false;
+            }
+        }
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -43,8 +54,9 @@ public class Triangle : MonoBehaviour
             score++;
             scoreOut.text = score.ToString();
         }
-        if (col.gameObject.tag == "square")
+        if (col.gameObject.tag == "square" && invuln == false)
         {
+            shake.ShakeTrigger();
             if(PublicVars.highScore < score)
             {
                 PublicVars.highScore = score;
@@ -55,7 +67,8 @@ public class Triangle : MonoBehaviour
             {
                 SceneManager.LoadScene("GameOver");
             }
-            shake.ShakeTrigger();
+            invulnTime = 2.0f;
+            invuln = true;
         }
         Destroy(col.gameObject);
     }
