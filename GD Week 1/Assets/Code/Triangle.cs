@@ -16,6 +16,12 @@ public class Triangle : MonoBehaviour
     ScreenShake shake;
     public TextMeshProUGUI scoreOut;
     public TextMeshProUGUI lifeOut;
+    Vector3 leftPos = new Vector3(-1.5f, -3.0f, 0.0f);
+    Vector3 rightPos = new Vector3(1.5f, -3.0f, 0.0f);
+    bool isLeft = true;
+    float moveSpd = 10.0f;
+    Vector3 oldPos;
+    Vector3 currSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +30,7 @@ public class Triangle : MonoBehaviour
         score = 0;
         life = 3;
         shake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ScreenShake>();
+        oldPos = transform.position;
     }
 
     // Update is called once per frame
@@ -33,8 +40,24 @@ public class Triangle : MonoBehaviour
         {
             // triangleRB.AddForce(new Vector2(velocity, 0));
             //transform.position = new Vector2(transform.position.x + xposition * Time.deltaTime, -3);
-            transform.Translate(xposition , 0,0);
-            xposition = xposition * -1;
+            //transform.Translate(xposition , 0,0);
+            //xposition = xposition * -1;
+            isLeft = !isLeft;
+        }
+
+        float moveAmt = moveSpd * Time.deltaTime;
+        currSpeed = oldPos - transform.position;
+        oldPos = transform.position;
+
+        if (isLeft)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, leftPos, moveAmt);
+            //transform.position = Vector3.Lerp(transform.position, leftPos, 0.5f);
+            //transform.position = Vector3.SmoothDamp(transform.position, leftPos, ref currSpeed, 1.0f);
+        }
+        else
+        {
+            transform.position = Vector3.MoveTowards(transform.position, rightPos, moveAmt);
         }
 
         if (invulnTime > 0)
