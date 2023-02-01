@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ObjectSpawn : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class ObjectSpawn : MonoBehaviour
     public GameObject squarePrefab;
     public float objectCooldown;
     float nextObject;
-    public Text scoreIn;
+    public TextMeshProUGUI scoreIn;
     public bool left;
     // Start is called before the first frame update
     void Start()

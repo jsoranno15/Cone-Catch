@@ -11,8 +11,8 @@ public class Triangle : MonoBehaviour
     public float xposition;
     int score;
     int life;
-    public Text scoreOut;
-    public Text lifeOut;
+    public TextMeshProUGUI scoreOut;
+    public TextMeshProUGUI lifeOut;
     // Start is called before the first frame update
     void Start()
     {
