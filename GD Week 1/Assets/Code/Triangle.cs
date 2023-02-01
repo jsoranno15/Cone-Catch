@@ -19,7 +19,7 @@ public class Triangle : MonoBehaviour
     Vector3 leftPos = new Vector3(-1.5f, -3.0f, 0.0f);
     Vector3 rightPos = new Vector3(1.5f, -3.0f, 0.0f);
     bool isLeft = true;
-    float moveSpd = 10.0f;
+    float moveSpd = 30.0f;
     Vector3 oldPos;
     Vector3 currSpeed;
 
